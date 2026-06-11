@@ -1,0 +1,179 @@
+.insc__headline {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.4vw, 36px);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+.insc__headline em { color: var(--color-primary); font-style: italic; }
+
+.insc__layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ---------- Stepper ---------- */
+.insc__stepper {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 22px;
+}
+.insc__step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  color: var(--color-text-light);
+}
+.insc__step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 44px;
+  bottom: -10px;
+  width: 2px;
+  background: var(--color-border-strong);
+}
+.insc__step.is-active:not(:last-child)::before { background: var(--color-primary); }
+.insc__step-dot {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--color-text-light);
+  transition: all 0.25s;
+}
+.insc__step-dot svg { width: 20px; height: 20px; }
+.insc__step.is-active .insc__step-dot {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.insc__step-label { font-size: 14px; font-weight: 600; }
+.insc__step.is-active .insc__step-label { color: var(--color-primary); }
+
+/* ---------- Form cards ---------- */
+.insc__form { display: flex; flex-direction: column; gap: 22px; }
+.insc__card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Radio em formato de cartões */
+.insc__options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.insc__option {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+  background: #fff;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.insc__option:hover { border-color: var(--color-primary); }
+.insc__option.is-selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-weight: 600;
+}
+
+/* Checkboxes */
+.insc__checks { display: flex; flex-direction: column; gap: 12px; }
+.insc__check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--color-text);
+  background: #fff;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.insc__check:hover { border-color: var(--color-primary); }
+.insc__check.is-selected { border-color: var(--color-primary); background: var(--color-primary-soft); }
+.insc__check input { position: absolute; opacity: 0; width: 0; height: 0; }
+.insc__check-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--color-border-strong);
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.18s;
+}
+.insc__check.is-selected .insc__check-box {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.insc__check.is-selected .insc__check-box::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.insc__erro { margin-top: 4px; }
+.insc__submit { margin-top: 4px; font-size: 17px; padding: 16px; }
+
+/* ---------- Sucesso ---------- */
+.insc__sucesso { max-width: 540px; margin: 0 auto; text-align: center; }
+.insc__sucesso-icon {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-grad-start), var(--color-grad-end));
+  color: #fff;
+  font-size: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.insc__sucesso p { color: var(--color-text-light); font-size: 17px; margin: 12px 0 28px; }
+
+@media (max-width: 820px) {
+  .insc__layout { grid-template-columns: 1fr; }
+  .insc__stepper {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 18px;
+  }
+  .insc__step { padding: 0; }
+  .insc__step:not(:last-child)::before { display: none; }
+  .insc__step-label { display: none; }
+  .insc__step.is-active .insc__step-label { display: inline; }
+}
+@media (max-width: 480px) {
+  .insc__options { grid-template-columns: 1fr; }
+  .insc__card { padding: 22px 18px; }
+}
