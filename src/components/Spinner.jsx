@@ -1,4 +1,4 @@
-/** Spinner simples. `dark` para fundo claro; `center` para centralizar. */
+/** "dark" para fundo claro; "center" para centralizar. */
 export default function Spinner({ dark = false, center = false }) {
   const cls = ['spinner', dark ? 'spinner-dark' : '', center ? 'spinner-center' : '']
     .filter(Boolean)
