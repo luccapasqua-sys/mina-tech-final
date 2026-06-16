@@ -1,0 +1,129 @@
+.prog__title { color: var(--color-primary); }
+
+.prog__layout {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 370px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Lista de eventos */
+.prog__list { display: flex; flex-direction: column; gap: 18px; }
+.prog__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-align: left;
+  background: #fff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.prog__item:hover { border-color: var(--color-primary); }
+.prog__item.is-active { border-color: var(--color-primary); background: var(--color-primary-soft); }
+.prog__item-date {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  width: 60px;
+}
+.prog__item-info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.prog__item-info strong { font-size: 17px; color: var(--color-text); }
+.prog__item-info small { font-size: 13.5px; color: var(--color-text-light); margin-top: 2px; }
+.prog__item-thumb { width: 66px; height: 66px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+
+/* Card destaque — borda azul (como no protótipo) */
+.prog__feature {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  background: #fff;
+  border: 2px solid var(--color-blue);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 380px;
+}
+.prog__feature-img img { width: 100%; height: 100%; object-fit: cover; }
+.prog__feature-info { background: var(--color-maroon); color: #fff; padding: 28px; }
+.prog__feature-dia { font-family: var(--font-display); font-size: 28px; font-weight: 700; display: block; }
+.prog__feature-data { font-size: 14px; color: rgba(255, 255, 255, 0.7); }
+
+.prog__detalhes { list-style: none; margin: 20px 0 0; display: flex; flex-direction: column; gap: 12px; }
+.prog__detalhes li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.prog__detalhe-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+.prog__detalhe-icon svg { width: 20px; height: 20px; }
+.prog__detalhe-text { display: flex; flex-direction: column; }
+.prog__detalhe-text small { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-grad-end); }
+.prog__detalhe-text strong { font-size: 14.5px; font-weight: 600; }
+
+/* Programações passadas */
+.prog__passada {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+  margin-top: 28px;
+}
+.prog__passada img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+.prog__passada-text p { color: var(--color-text); margin-bottom: 20px; }
+
+/* Depoimentos — linhas alternadas full-width */
+.prog__depos { margin-top: 30px; display: flex; flex-direction: column; gap: 40px; }
+.prog__depo {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 34px;
+  align-items: center;
+}
+.prog__depo--rev { grid-template-columns: 1fr 200px; }
+.prog__depo--rev .prog__depo-foto { order: 2; }
+.prog__depo-foto {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+.prog__depo-nome {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+.prog__depo blockquote { font-size: 16px; color: var(--color-text); line-height: 1.7; }
+
+@media (max-width: 880px) {
+  .prog__layout { grid-template-columns: 1fr; }
+  .prog__feature { grid-template-columns: 1fr; }
+  .prog__feature-img img { max-height: 280px; }
+}
+@media (max-width: 760px) {
+  .prog__passada, .prog__passada--rev { grid-template-columns: 1fr; gap: 20px; }
+  .prog__passada--rev img { order: -1; }
+  .prog__depo, .prog__depo--rev { grid-template-columns: 1fr; gap: 16px; justify-items: center; text-align: center; }
+  .prog__depo--rev .prog__depo-foto { order: -1; }
+}
