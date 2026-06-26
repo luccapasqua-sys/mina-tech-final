@@ -55,7 +55,7 @@ entrega-final-minatech/
 │   └── supabase.js           # cliente Supabase (service role)
 │
 ├── api/
-│   └── [...path].js          # função serverless da Vercel (reexporta server/app)
+│   └── index.js              # função serverless da Vercel (reexporta server/app; /api/* via rewrite)
 │
 ├── db/schema.sql             # tabela + RLS para o Supabase
 ├── medias/ • QRCODE/ • pages-print-screen/   # assets originais e protótipos
